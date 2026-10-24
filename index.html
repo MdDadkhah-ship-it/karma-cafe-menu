@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#142a24">
+<title>Karma Cafe | منوی دیجیتال</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+:root{
+ --bg:#0c1713;--surface:#142720;--surface2:#1b352b;--surface3:#254539;
+ --accent:#e28b4a;--accent-light:#f1b47f;--cream:#f7efdf;--muted:#b8c4b8;
+ --line:rgba(227,192,151,.19);--shadow:0 20px 60px rgba(0,0,0,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:"Vazirmatn",Tahoma,sans-serif;line-height:1.8}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 90% -10%,rgba(77,112,82,.26),transparent 40%),radial-gradient(ellipse at 0% 30%,rgba(157,91,46,.12),transparent 34%)}
+*{scrollbar-color:#496456 #102019}
+.wrap{width:min(1120px,100% - 32px);margin:auto}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 0}
+.mini-brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px;color:var(--accent-light)}
+.logo-mark{width:38px;height:38px;border:1px solid rgba(226,139,74,.6);border-radius:50%;display:grid;place-items:center;color:var(--accent);font-size:21px;background:rgba(226,139,74,.06)}
+.top-note{font-size:12px;color:var(--muted)}
+.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:28px;padding:clamp(26px,6vw,66px) clamp(20px,5vw,58px);background:linear-gradient(110deg,rgba(11,24,18,.96),rgba(26,55,43,.92)),repeating-linear-gradient(0deg,transparent 0 35px,rgba(239,173,117,.06) 36px 37px);box-shadow:var(--shadow)}
+.hero:before,.hero:after{content:"";position:absolute;pointer-events:none;border:1px solid rgba(226,139,74,.18);border-radius:50%;width:360px;height:360px;left:-110px;top:-200px}
+.hero:after{width:260px;height:260px;left:-60px;top:-150px}
+.hero-content{position:relative;z-index:1;max-width:670px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--accent-light);font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+h1{font-size:clamp(34px,6vw,65px);line-height:1.25;letter-spacing:-1.6px;margin:14px 0 12px}
+h1 em{font-style:normal;color:var(--accent)}
+.hero p{max-width:530px;color:#c8d0c5;margin:0;font-size:15px}
+.hero-bottom{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:27px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:12px;background:rgba(255,255,255,.025)}
+.toolbar{display:flex;gap:10px;margin:24px 0 12px}
+.search-wrap{position:relative;flex:1}
+.search-icon{position:absolute;right:15px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:18px;pointer-events:none}
+.search{width:100%;padding:14px 45px 14px 15px;border:1px solid var(--line);border-radius:15px;background:#12221b;color:var(--cream);font:inherit;outline:none;transition:.2s}
+.search:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(226,139,74,.12)}
+button{font:inherit;cursor:pointer;transition:transform .18s,border-color .18s,background .18s}
+button:active{transform:scale(.98)}
+.admin-toggle{border:1px solid var(--line);border-radius:15px;padding:0 16px;background:var(--surface);color:var(--cream);white-space:nowrap}
+.admin-toggle:hover{border-color:var(--accent)}
+.category-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:30px 0 12px}
+.category-heading h2{font-size:20px;margin:0}
+.category-heading p{margin:0;color:var(--muted);font-size:12px}
+.categories{display:flex;gap:8px;overflow:auto;padding:2px 0 13px;scrollbar-width:thin}
+.categories button{white-space:nowrap;flex-shrink:0;border:1px solid var(--line);background:rgba(20,39,32,.76);color:#d9e0d5;border-radius:999px;padding:9px 15px;font-size:13px}
+.categories button:hover{border-color:var(--accent)}
+.categories button.active{background:var(--accent);color:#211b15;border-color:var(--accent);font-weight:800}
+.menu-section{margin:16px 0 28px;scroll-margin-top:20px}
+.section-title{display:flex;align-items:center;gap:12px;margin:0 0 12px}
+.section-title .section-icon{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;background:rgba(226,139,74,.1);border:1px solid rgba(226,139,74,.22);font-size:19px}
+.section-title h3{font-size:18px;margin:0}
+.section-title p{font-size:11px;color:var(--muted);margin:0}
+.section-title .line{height:1px;flex:1;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.item{position:relative;display:flex;gap:13px;align-items:center;min-width:0;border:1px solid var(--line);border-radius:18px;padding:14px;background:linear-gradient(140deg,rgba(28,54,43,.95),rgba(17,35,27,.98));transition:transform .2s,border-color .2s}
+.item:hover{transform:translateY(-2px);border-color:rgba(226,139,74,.48)}
+.item-emoji{width:55px;height:55px;display:grid;place-items:center;flex-shrink:0;border-radius:15px;background:linear-gradient(145deg,#2c4d3d,#203a2f);font-size:26px;border:1px solid rgba(255,255,255,.035)}
+.item-main{flex:1;min-width:0}
+.item h4{font-size:14px;font-weight:700;margin:0 0 2px}
+.item p{font-size:11px;color:var(--muted);margin:0;line-height:1.7}
+.price{color:var(--accent-light);font-weight:800;font-size:14px;white-space:nowrap;text-align:left;line-height:1.4}
+.price small{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:4px}
+.empty{border:1px dashed var(--line);padding:32px;text-align:center;color:var(--muted);border-radius:18px}
+.admin{margin:32px 0 0;border:1px solid rgba(226,139,74,.42);border-radius:22px;padding:clamp(16px,3vw,26px);background:linear-gradient(140deg,rgba(45,43,31,.75),rgba(22,39,30,.94))}
+.admin-head{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.admin h2{margin:0;font-size:20px}
+.admin .lead{margin:5px 0 16px;color:var(--muted);font-size:12px}
+.demo-label{color:var(--accent-light);font-size:11px;border:1px solid rgba(226,139,74,.3);padding:5px 9px;border-radius:999px;white-space:nowrap}
+.admin-row{display:grid;grid-template-columns:minmax(0,1fr) 155px 70px;align-items:center;gap:9px;border-top:1px solid var(--line);padding:9px 0}
+.admin-row label{font-size:13px}
+.admin-row label small{display:block;font-size:10px;color:var(--muted)}
+.admin-row input{width:100%;min-width:0;border:1px solid var(--line);border-radius:10px;padding:10px;background:#0e1c16;color:var(--cream);font:inherit;font-size:13px;outline:none}
+.admin-row input:focus{border-color:var(--accent)}
+.small-btn{border:1px solid var(--line);background:var(--surface2);color:var(--cream);border-radius:10px;padding:9px 10px;font-size:12px}
+.primary{border:1px solid var(--accent);background:var(--accent);color:#201a13;font-weight:800;border-radius:12px;padding:11px 15px}
+.ghost{border:1px solid var(--line);background:transparent;color:var(--cream);border-radius:12px;padding:11px 15px}
+.admin-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+.notice{margin-top:14px;background:rgba(70,102,76,.23);border:1px solid rgba(113,152,116,.2);color:#d0dfd0;border-radius:12px;padding:11px 13px;font-size:12px}
+footer{border-top:1px solid var(--line);margin-top:36px;padding:22px 0 30px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#94a498;font-size:11px}
+footer strong{color:var(--accent-light);font-weight:700}
+.hidden{display:none!important}
+@media(max-width:650px){
+ .wrap{width:min(100% - 22px,1120px)}
+ .top-note{display:none}
+ .hero{border-radius:22px}
+ .toolbar{flex-direction:column}
+ .admin-toggle{padding:12px}
+ .grid{grid-template-columns:1fr}
+ .item{padding:13px}
+ .item-emoji{width:50px;height:50px}
+ .category-heading{align-items:start;flex-direction:column}
+ .admin-row{grid-template-columns:minmax(0,1fr) 120px}
+ .admin-row button{grid-column:1/-1}
+ footer{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="topbar">
+    <div class="mini-brand"><span class="logo-mark">✦</span><span>KARMA CAFE</span></div>
+    <div class="top-note">منوی دیجیتال · نسخه‌ی آزمایشی</div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow"><span class="dot"></span> COFFEE · FOOD · GOOD MOMENTS</div>
+      <h1>لحظه‌ای برای <em>خودت.</em></h1>
+      <p>از قهوه‌ی روزت تا طعم‌های دوست‌داشتنی؛ منوی کارما را ببین و انتخابت را پیدا کن.</p>
+      <div class="hero-bottom">
+        <span class="pill">☕ قهوه‌ی تازه</span>
+        <span class="pill">✦ انتخاب‌های کارما</span>
+        <span class="pill">قیمت‌ها به تومان</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="search-wrap"><span class="search-icon">⌕</span><input class="search" id="search" type="search" placeholder="نام نوشیدنی یا غذا را جست‌وجو کن…" aria-label="جست‌وجو در منو"></div>
+    <button class="admin-toggle" id="adminToggle" type="button">⚙ مدیریت آزمایشی</button>
+  </div>
+
+  <div class="category-heading">
+    <div><h2>منوی کارما</h2><p>برای دیدن محصولات، یک دسته‌بندی را انتخاب کن.</p></div>
+    <p id="countLabel">۱۴ آیتم نمونه</p>
+  </div>
+  <nav class="categories" id="categories" aria-label="دسته‌بندی منو"></nav>
+  <main id="menu"></main>
+
+  <section class="admin hidden" id="adminPanel">
+    <div class="admin-head">
+      <div><h2>مدیریت قیمت‌ها</h2><p class="lead">قیمت‌ها را تغییر بده و ذخیره کن تا در همین مرورگر باقی بمانند.</p></div>
+      <span class="demo-label">حالت تمرینی</span>
+    </div>
+    <div id="adminRows"></div>
+    <div class="admin-actions">
+      <button class="primary" id="savePrices">ذخیره تغییرات</button>
+      <button class="ghost" id="exportData">خروجی گرفتن از قیمت‌ها</button>
+      <button class="ghost" id="resetPrices">بازگردانی نمونه</button>
+    </div>
+    <div class="notice" id="status" role="status">نکته: تغییرات این نسخه فقط روی همین دستگاه ذخیره می‌شوند؛ هنوز به سایت عمومی متصل نیستند.</div>
+  </section>
+
+  <footer><span><strong>KARMA CAFE</strong> · قهوه، طعم و لحظه‌های خوب</span><span>نمونه‌ی آموزشی — محصولات و قیمت‌ها فرضی هستند.</span></footer>
+</div>
+<script>
+const starterItems = [
+ {id:1,cat:"بار اسپرسو",name:"اسپرسو",desc:"قهوه‌ی کوتاه و غلیظ",price:90000,emoji:"☕",icon:"☕"},
+ {id:2,cat:"بار اسپرسو",name:"آمریکانو",desc:"اسپرسو و آب داغ",price:120000,emoji:"☕"},
+ {id:3,cat:"بار اسپرسو",name:"کاپوچینو",desc:"اسپرسو با شیر و فوم",price:150000,emoji:"🥛"},
+ {id:4,cat:"بار گرم",name:"هات‌چاکلت",desc:"نوشیدنی شکلاتی گرم",price:160000,emoji:"🍫"},
+ {id:5,cat:"بار گرم",name:"ماسالا",desc:"چای ادویه‌ای و گرم",price:140000,emoji:"🫖"},
+ {id:6,cat:"قهوه‌های دمی",name:"قهوه دمی روز",desc:"روش دم‌آوری متناسب با دانه‌ی روز",price:180000,emoji:"🫘"},
+ {id:7,cat:"آیس کافی",name:"آیس آمریکانو",desc:"اسپرسو، آب و یخ",price:130000,emoji:"🧊"},
+ {id:8,cat:"آیس کافی",name:"آیس لاته",desc:"اسپرسو، شیر و یخ",price:170000,emoji:"🥤"},
+ {id:9,cat:"شیک و بستنی",name:"شیک شکلات",desc:"شیک غلیظ با طعم شکلات",price:220000,emoji:"🍨"},
+ {id:10,cat:"نوشیدنی سرد",name:"لیموناد",desc:"نوشیدنی خنک لیمویی",price:140000,emoji:"🍋"},
+ {id:11,cat:"چای و دمنوش",name:"چای سیاه",desc:"چای تازه‌دم",price:80000,emoji:"🫖"},
+ {id:12,cat:"چای و دمنوش",name:"دمنوش آرامش",desc:"ترکیب گیاهی روز",price:130000,emoji:"🌿"},
+ {id:13,cat:"فست‌فود",name:"پنینی مرغ",desc:"ساندویچ گرم با مرغ",price:280000,emoji:"🥪"},
+ {id:14,cat:"صبحانه",name:"صبحانه‌ی کارما",desc:"ترکیب صبحانه‌ی مخصوص کافه",price:320000,emoji:"🍳"}
+];
+let items = loadItems();
+let activeCat = "همه";
+const categoryEmoji={"همه":"✦","بار اسپرسو":"☕","بار گرم":"♨","قهوه‌های دمی":"🫘","آیس کافی":"🧊","شیک و بستنی":"🍨","نوشیدنی سرد":"🍋","چای و دمنوش":"🌿","فست‌فود":"🥪","صبحانه":"🍳"};
+function loadItems(){try{const s=localStorage.getItem("karmaDemoPricesV2");if(s){const p=JSON.parse(s);if(Array.isArray(p)&&p.length)return p}}catch(e){}return starterItems.map(x=>({...x}))}
+function fmt(n){return Number(n).toLocaleString("fa-IR")}
+function cats(){return ["همه",...new Set(items.map(x=>x.cat))]}
+function renderCats(){const el=document.getElementById("categories");el.innerHTML="";cats().forEach(c=>{const b=document.createElement("button");b.textContent=`${categoryEmoji[c]||"•"}  ${c}`;b.className=c===activeCat?"active":"";b.onclick=()=>{activeCat=c;renderCats();renderMenu()};el.appendChild(b)})}
+function renderMenu(){
+ const q=document.getElementById("search").value.trim().toLocaleLowerCase("fa");
+ const filtered=items.filter(x=>(activeCat==="همه"||x.cat===activeCat)&&(`${x.name} ${x.desc} ${x.cat}`.toLocaleLowerCase("fa").includes(q)));
+ document.getElementById("countLabel").textContent=`${fmt(filtered.length)} آیتم`;
+ const groups={};filtered.forEach(x=>(groups[x.cat]??=[]).push(x));
+ const root=document.getElementById("menu");root.innerHTML="";
+ if(!Object.keys(groups).length){root.innerHTML='<div class="empty">چیزی با این عبارت پیدا نشد. عبارت دیگری را امتحان کن.</div>';return}
+ Object.entries(groups).forEach(([cat,arr])=>{
+  const section=document.createElement("section");section.className="menu-section";
+  const title=document.createElement("div");title.className="section-title";
+  title.innerHTML=`<span class="section-icon">${categoryEmoji[cat]||"✦"}</span><div><h3></h3><p>انتخاب‌های این دسته</p></div><span class="line"></span>`;
+  title.querySelector("h3").textContent=cat;
+  const grid=document.createElement("div");grid.className="grid";
+  arr.forEach(x=>{const card=document.createElement("article");card.className="item";card.innerHTML=`<div class="item-emoji">${x.emoji||"✦"}</div><div class="item-main"><h4></h4><p></p></div><div class="price">${fmt(x.price)}<small>تومان</small></div>`;card.querySelector("h4").textContent=x.name;card.querySelector("p").textContent=x.desc;grid.appendChild(card)});
+  section.append(title,grid);root.appendChild(section);
+ })
+}
+function renderAdmin(){
+ const el=document.getElementById("adminRows");el.innerHTML="";
+ items.forEach(x=>{const row=document.createElement("div");row.className="admin-row";const label=document.createElement("label");label.textContent=x.name;const small=document.createElement("small");small.textContent=x.cat;label.appendChild(small);const input=document.createElement("input");input.type="number";input.min="0";input.step="1000";input.value=x.price;input.setAttribute("aria-label",`قیمت ${x.name}`);input.dataset.id=x.id;const btn=document.createElement("button");btn.className="small-btn";btn.textContent="اعمال";btn.onclick=()=>{const v=Number(input.value);if(Number.isFinite(v)&&v>=0){x.price=Math.round(v);renderMenu();document.getElementById("status").textContent=`قیمت «${x.name}» در پیش‌نمایش تغییر کرد؛ برای نگهداری آن، ذخیره تغییرات را بزن.`}};row.append(label,input,btn);el.appendChild(row)})
+}
+document.getElementById("search").addEventListener("input",renderMenu);
+document.getElementById("adminToggle").onclick=()=>{document.getElementById("adminPanel").classList.toggle("hidden");renderAdmin();if(!document.getElementById("adminPanel").classList.contains("hidden"))document.getElementById("adminPanel").scrollIntoView({behavior:"smooth",block:"start"})};
+document.getElementById("savePrices").onclick=()=>{document.querySelectorAll("#adminRows input").forEach(input=>{const x=items.find(i=>i.id===Number(input.dataset.id));const v=Number(input.value);if(x&&Number.isFinite(v)&&v>=0)x.price=Math.round(v)});try{localStorage.setItem("karmaDemoPricesV2",JSON.stringify(items));renderMenu();renderAdmin();document.getElementById("status").textContent="ذخیره شد؛ این تغییر فقط در همین مرورگر و همین دستگاه باقی می‌ماند."}catch(e){document.getElementById("status").textContent="مرورگر اجازه‌ی ذخیره‌سازی نداد. فایل خروجی بگیر تا قیمت‌ها را از دست ندهی."}};
+document.getElementById("resetPrices").onclick=()=>{if(confirm("قیمت‌ها به مقادیر نمونه برگردند؟")){items=starterItems.map(x=>({...x}));localStorage.removeItem("karmaDemoPricesV2");renderCats();renderMenu();renderAdmin();document.getElementById("status").textContent="قیمت‌های نمونه بازگردانده شدند."}};
+document.getElementById("exportData").onclick=()=>{const blob=new Blob([JSON.stringify(items,null,2)],{type:"application/json;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="karma-menu-prices.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+renderCats();renderMenu();
+</script>
+</body>
+</html>
